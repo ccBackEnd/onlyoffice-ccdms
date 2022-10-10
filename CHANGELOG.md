@@ -1,5 +1,9 @@
 # Change Log
 
+##
+## Fixed
+- issue with preview documents [#162](https://github.com/ONLYOFFICE/onlyoffice-alfresco/issues/162)
+
 ## 6.0.0
 ## Added
 - creating new file from document editor
