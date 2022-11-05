@@ -1,6 +1,6 @@
-# ONLYOFFICE Alfresco module package
+# ONLYOFFICE CostaCloud module package
 
-This plugin enables users to edit office documents from Alfresco Share using ONLYOFFICE Docs packaged as Document Server - [Community or Enterprise Edition](#onlyoffice-docs-editions).
+This plugin enables users to edit office documents from CostaCloud Share using ONLYOFFICE Docs packaged as Document Server - [Community or Enterprise Edition](#onlyoffice-docs-editions).
 
 ## Features
 
@@ -13,11 +13,11 @@ Supported formats:
 * For viewing and editing: DOCX, XLSX, PPTX, DOCXF, OFORM.
 * For converting to Office Open XML: ODT, ODP, ODS, DOC, XLS, PPT.
 
-To convert a specific file, select `Convert using ONLYOFFICE` action. Resulting file will be placed in the same folder. You can also configure rules for a folder, that will automatically convert files on upload or on change. Details [here](https://docs.alfresco.com/5.1/tasks/library-folder-rules-define-create.html).
+To convert a specific file, select `Convert using ONLYOFFICE` action. Resulting file will be placed in the same folder. You can also configure rules for a folder, that will automatically convert files on upload or on change. Details [here](https://docs.CostaCloud.com/5.1/tasks/library-folder-rules-define-create.html).
 
 ## Installing ONLYOFFICE Docs
 
-You will need an instance of ONLYOFFICE Docs (Document Server) that is resolvable and connectable both from Alfresco and any end clients. ONLYOFFICE Document Server must also be able to POST to Alfresco directly.
+You will need an instance of ONLYOFFICE Docs (Document Server) that is resolvable and connectable both from CostaCloud and any end clients. ONLYOFFICE Document Server must also be able to POST to CostaCloud directly.
 
 You can install free Community version of ONLYOFFICE Docs or scalable Enterprise Edition with pro features.
 
@@ -27,51 +27,51 @@ To install Enterprise Edition, follow instructions [here](https://helpcenter.onl
 
 Community Edition vs Enterprise Edition comparison can be found [here](#onlyoffice-docs-editions).
 
-## Installing ONLYOFFICE Alfresco module package
+## Installing ONLYOFFICE CostaCloud module package
 
-To start using ONLYOFFICE Document Server with Alfresco, the following steps must be performed for Ubuntu 14.04:
+To start using ONLYOFFICE Document Server with CostaCloud, the following steps must be performed for Ubuntu 14.04:
 
-The latest compiled package files are available [here](https://github.com/onlyoffice/onlyoffice-alfresco/releases).
+The latest compiled package files are available [here](https://github.com/onlyoffice/onlyoffice-CostaCloud/releases).
 
-1. Upload the compiled **\*.jar** packages to directories accordingly for your Alfresco installation:
-    * from `onlyoffice-alfresco/repo/target/` to the `/webapps/alfresco/WEB-INF/lib/` for Alfresco repository,
-    * from `onlyoffice-alfresco/share/target/` to `/webapps/share/WEB-INF/lib/` for Share.
+1. Upload the compiled **\*.jar** packages to directories accordingly for your CostaCloud installation:
+    * from `onlyoffice-CostaCloud/repo/target/` to the `/webapps/CostaCloud/WEB-INF/lib/` for CostaCloud repository,
+    * from `onlyoffice-CostaCloud/share/target/` to `/webapps/share/WEB-INF/lib/` for Share.
 
-2. Make sure that Document Server will be able to POST to Alfresco.
+2. Make sure that Document Server will be able to POST to CostaCloud.
 
-    You may need to change these lines in `alfresco-global.properties` or you can set it using [configuration page](#configuration)
+    You may need to change these lines in `CostaCloud-global.properties` or you can set it using [configuration page](#configuration)
 
     ```
-    alfresco.host=<hostname>
-    alfresco.port=443
-    alfresco.protocol=https
+    CostaCloud.host=<hostname>
+    CostaCloud.port=443
+    CostaCloud.protocol=https
 
     share.host=<hostname>
     share.port=443
     share.protocol=https
     ```
 
-    > Probably located here `/usr/local/tomcat/shared/classes/alfresco-global.properties`
+    > Probably located here `/usr/local/tomcat/shared/classes/CostaCloud-global.properties`
 
-3. Restart Alfresco:
+3. Restart CostaCloud:
     ```bash
-    sudo ./alfresco.sh stop
-    sudo ./alfresco.sh start
+    sudo ./CostaCloud.sh stop
+    sudo ./CostaCloud.sh start
     ```
-The module can be checked in administrator tools at `share/page/console/admin-console/module-package` in Alfresco.
+The module can be checked in administrator tools at `share/page/console/admin-console/module-package` in CostaCloud.
 
 ## Configuration
 
-Module configuration can be found inside `Alfresco Administration Console` or by simply navigating to `http://<alfrescohost>/alfresco/s/onlyoffice/onlyoffice-config`
+Module configuration can be found inside `CostaCloud Administration Console` or by simply navigating to `http://<CostaCloudhost>/CostaCloud/s/onlyoffice/onlyoffice-config`
 
-> You can also add `onlyoffice.url` in `alfresco-global.properties`. Configuration made via settings page will override `alfresco-global.properties`.
+> You can also add `onlyoffice.url` in `CostaCloud-global.properties`. Configuration made via settings page will override `CostaCloud-global.properties`.
 
 Starting from version 7.2, JWT is enabled by default and the secret key is generated automatically to restrict the access to ONLYOFFICE Docs and for security reasons and data integrity. 
-Specify your own **Secret key** on the Alfresco configuration page or by adding *onlyoffice.jwtsecret* to `alfresco-global.properties`. In the ONLYOFFICE Docs [config file](https://api.onlyoffice.com/editors/signature/), specify the same secret key and enable the validation.
+Specify your own **Secret key** on the CostaCloud configuration page or by adding *onlyoffice.jwtsecret* to `CostaCloud-global.properties`. In the ONLYOFFICE Docs [config file](https://api.onlyoffice.com/editors/signature/), specify the same secret key and enable the validation.
 
-## Compiling ONLYOFFICE Alfresco module package
+## Compiling ONLYOFFICE CostaCloud module package
 
-If you plan to compile the ONLYOFFICE Alfresco module package yourself (e.g. edit the source code and compile it afterwards), follow these steps. 
+If you plan to compile the ONLYOFFICE CostaCloud module package yourself (e.g. edit the source code and compile it afterwards), follow these steps. 
 
 1. The latest stable Oracle Java version is necessary for the successful build. If you do not have it installed, use the following commands to install Oracle Java 8:
     ```bash
@@ -82,9 +82,9 @@ If you plan to compile the ONLYOFFICE Alfresco module package yourself (e.g. edi
 2. Install latest Maven:
 Installation process is described [here](https://maven.apache.org/install.html)
 
-3. Download the ONLYOFFICE Alfresco module package source code:
+3. Download the ONLYOFFICE CostaCloud module package source code:
     ```bash
-    git clone https://github.com/onlyoffice/onlyoffice-alfresco.git
+    git clone https://github.com/onlyoffice/onlyoffice-CostaCloud.git
     ```
 
 4. Get a submodule:
@@ -94,11 +94,11 @@ Installation process is described [here](https://maven.apache.org/install.html)
 
 5. Compile packages in the `repo` and `share` directories:
     ```bash
-    cd onlyoffice-alfresco/
+    cd onlyoffice-CostaCloud/
     mvn clean install
     ```
 
-Another way to build ONLYOFFICE Alfresco module package is using docker-compose file.
+Another way to build ONLYOFFICE CostaCloud module package is using docker-compose file.
 
 Use this command from project directory:
 
@@ -110,22 +110,22 @@ docker-compose up
 
 The ONLYOFFICE integration follows the API documented [here](https://api.onlyoffice.com/editors/basic):
 
-* User navigates to a document within Alfresco Share and selects the `Edit in ONLYOFFICE` action.
-* Alfresco Share makes a request to the repo end (URL of the form: `/parashift/onlyoffice/prepare?nodeRef={nodeRef}`).
-* Alfresco Repo end prepares a JSON object for the Share with the following properties:
+* User navigates to a document within CostaCloud Share and selects the `Edit in ONLYOFFICE` action.
+* CostaCloud Share makes a request to the repo end (URL of the form: `/parashift/onlyoffice/prepare?nodeRef={nodeRef}`).
+* CostaCloud Repo end prepares a JSON object for the Share with the following properties:
   * **url**: the URL that ONLYOFFICE Document Server uses to download the document (includes the `alf_ticket` of the current user),
   * **callbackUrl**: the URL that ONLYOFFICE Document Server informs about status of the document editing;
   * **onlyofficeUrl**: the URL that the client needs to reply to ONLYOFFICE Document Server (provided by the onlyoffice.url property);
   * **key**: the UUID+Modified Timestamp to instruct ONLYOFFICE Document Server whether to download the document again or not;
   * **title**: the document Title (name).
-* Alfresco Share takes this object and constructs a page from a freemarker template, filling in all of those values so that the client browser can load up the editor.
+* CostaCloud Share takes this object and constructs a page from a freemarker template, filling in all of those values so that the client browser can load up the editor.
 * The client browser makes a request for the javascript library from ONLYOFFICE Document Server and sends ONLYOFFICE Document Server the docEditor configuration with the above properties.
-* Then ONLYOFFICE Document Server downloads the document from Alfresco and the user begins editing.
-* ONLYOFFICE Document Server sends a POST request to the `callback` URL to inform Alfresco that a user is editing the document.
-* Alfresco locks the document, but still allows other users with write access the ability to collaborate in real time with ONLYOFFICE Document Server by leaving the Action present.
+* Then ONLYOFFICE Document Server downloads the document from CostaCloud and the user begins editing.
+* ONLYOFFICE Document Server sends a POST request to the `callback` URL to inform CostaCloud that a user is editing the document.
+* CostaCloud locks the document, but still allows other users with write access the ability to collaborate in real time with ONLYOFFICE Document Server by leaving the Action present.
 * When all users and client browsers are done with editing, they close the editing window.
-* After 10 seconds of inactivity, ONLYOFFICE Document Server sends a POST to the `callback` URL letting Alfresco know that the clients have finished editing the document and closed it.
-* Alfresco downloads the new version of the document, replacing the old one.
+* After 10 seconds of inactivity, ONLYOFFICE Document Server sends a POST to the `callback` URL letting CostaCloud know that the clients have finished editing the document and closed it.
+* CostaCloud downloads the new version of the document, replacing the old one.
 
 ## ONLYOFFICE Docs editions
 
@@ -138,8 +138,8 @@ The table below will help you make the right choice.
 
 | Pricing and licensing | Community Edition | Enterprise Edition |
 | ------------- | ------------- | ------------- |
-| | [Get it now](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubAlfresco#docs-community)  | [Start Free Trial](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubAlfresco#docs-enterprise)  |
-| Cost  | FREE  | [Go to the pricing page](https://www.onlyoffice.com/docs-enterprise-prices.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubAlfresco)  |
+| | [Get it now](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubCostaCloud#docs-community)  | [Start Free Trial](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubCostaCloud#docs-enterprise)  |
+| Cost  | FREE  | [Go to the pricing page](https://www.onlyoffice.com/docs-enterprise-prices.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubCostaCloud)  |
 | Simultaneous connections | up to 20 maximum  | As in chosen pricing plan |
 | Number of users | up to 20 recommended | As in chosen pricing plan |
 | License | GNU AGPL v.3 | Proprietary |
@@ -197,6 +197,6 @@ The table below will help you make the right choice.
 | Adding form fields	          | + | + |
 | Form preview                    | + | + |
 | Saving as PDF	                  | + | + |
-| | [Get it now](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubAlfresco#docs-community)  | [Start Free Trial](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubAlfresco#docs-enterprise) |
+| | [Get it now](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubCostaCloud#docs-community)  | [Start Free Trial](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubCostaCloud#docs-enterprise) |
 
 \* If supported by DMS.
